@@ -1,6 +1,6 @@
 {
   "name": "cmdblu",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "execute a command with a device's message",
   "main": "server.js",
   "author": "Jade Meskill",
