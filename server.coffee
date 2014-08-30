@@ -8,7 +8,7 @@ payload_only = process.env.PAYLOAD_ONLY
 meshblu_uri  = process.env.MESHBLU_URI || 'wss://meshblu.octoblu.com'
 
 meshblu = new Meshblu device_uuid, device_token, meshblu_uri, =>
-
+  console.log 'ready'
   device = new Device meshblu
   device.onMessage (message) =>
     if payload_only

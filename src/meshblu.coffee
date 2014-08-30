@@ -12,6 +12,7 @@ class Meshblu
       uuid: uuid
       token: token
     @connection.on 'ready', callback
+    @connection.on 'notReady', console.log
 
   close: =>
     @connection.close()
