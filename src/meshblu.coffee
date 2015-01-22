@@ -1,11 +1,11 @@
-skynet = require 'skynet'
+meshblu = require 'meshblu'
 url    = require 'url'
 
 class Meshblu
   constructor: (uuid, token, uri, callback=->) ->
     {protocol, hostname, port} = url.parse(uri)
 
-    @connection = skynet.createConnection
+    @connection = meshblu.createConnection
       protocol: protocol
       server: hostname
       port: port ? 80
