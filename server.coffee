@@ -1,11 +1,17 @@
 Meshblu = require './src/meshblu'
 Device = require './src/device'
 {spawn} = require 'child_process'
+config  = require './meshblu.json'
+debug  = require('debug')('cmdblu')
 
-device_uuid = process.env.DEVICE_UUID
-device_token = process.env.DEVICE_TOKEN
-payload_only = process.env.PAYLOAD_ONLY
-meshblu_uri  = process.env.MESHBLU_URI || 'wss://meshblu.octoblu.com'
+device_uuid  = config.uuid
+device_token = config.token
+payload_only = config.payloadOnly
+meshblu_uri  = "ws://#{config.server}:#{config.port}"
+
+
+
+
 
 meshblu = new Meshblu device_uuid, device_token, meshblu_uri, =>
   console.log 'ready'
@@ -15,3 +21,9 @@ meshblu = new Meshblu device_uuid, device_token, meshblu_uri, =>
       console.log JSON.stringify(message.payload)
     else
       console.log JSON.stringify(message)
+
+  sendMessage = ->
+    message = devices: '0cce08a0-9a83-11e4-9c29-db30ae30b0dc', topic: 'refresh'
+    debug 'sendMessage', message
+    meshblu.connection.message message
+

@@ -24,6 +24,7 @@
     "start": "coffee server.coffee"
   },
   "dependencies": {
+    "debug": "^2.1.1",
     "lodash": "^2.4.1",
     "meshblu": "^1.12.0",
     "shelljs": "^0.3.0",
