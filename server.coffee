@@ -10,7 +10,7 @@ conn.on 'ready', ->
   sendMessage = ->
     message = not_a_topic: 'yo'
     debug 'sendMessage', message
-    conn.encryptMessage config.uuid, message, payload: 'something'
+    conn.message config.uuid, message, payload: 'something'
   sendMessage()
 
 conn.on 'message', (message) ->
